@@ -6,7 +6,6 @@ fn main() {
     declarative_vectors();
 
     map_investigation();
-    inspecting_inspect();
 
     let closure = |val: u8| format!("\nPerfect formatting for casted: {}", (12 + val) as i32);
     println!("{}", closure(23));
@@ -19,41 +18,41 @@ fn main() {
 }
 
 fn imperative_arrays() {
-    let boyband: [&str; 5] = ["John", "Joe", "Jack", "James", "Jeremy"];
+    let list: [&str; 5] = ["A", "B", "C", "D", "E"];
 
     println!("\nImperative way");
 
     // array borowing is smooth, because we're holding data in stack memory
-    for each in boyband {
+    for each in list {
         println!("And the Oscar goes to ... {}", each);
     }
-    println!("Population of our program: {:?}", boyband);
+    println!("Population of our program: {:?}", list);
 }
 
 fn declarative_arrays() {
-    let boyband: [&str; 5] = ["John", "Joe", "Jack", "James", "Jeremy"];
+    let list: [&str; 5] = ["A", "B", "C", "D", "E"];
     println!("\nDeclarative way");
-    boyband.map(|each| println!("{}", each));
-    println!("Population of our program: {:?}", boyband);
+    list.map(|each| println!("{}", each));
+    println!("Population of our program: {:?}", list);
 }
 
 fn imperative_vectors() {
-    let ladies = vec!["Jane", "Joan", "Jennifer", "Jolinda"];
+    let list = vec!["A", "B", "C", "D"];
     println!("\nImperative way");
 
-    for each in &ladies {
-        println!("Cutie .. {}", each);
+    for each in &list {
+        println!("Letter ... {}", each);
     }
 
-    println!("All the single ladies, {:?}", ladies);
+    println!("list {:?}", list);
 }
 
 fn declarative_vectors() {
-    let ladies = vec!["Jane", "Joan", "Jennifer", "Jolinda"];
+    let list = vec!["A", "B", "C", "D"];
     println!("\nDeclarative way - vectors");
     // have to disable this variable since map returns Map
-    let _ = ladies.iter().map(|each| println!(" isn't she {} ?", each));
-    println!("All the single ladies, {:?}", ladies);
+    let _ = list.iter().map(|each| println!(" isn't she {} ?", each));
+    println!("Element: {:?}", list);
 }
 
 fn map_investigation() {
@@ -62,8 +61,3 @@ fn map_investigation() {
     println!("{:?}", result);
 }
 
-fn inspecting_inspect() {
-    let list = vec![1, 2, 3, 4];
-    println!("\n\nHere comes the inspector:");
-    list.iter().map(|x| println!("is a {}", x));
-}
